@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    a,
+    img {
+        border: 0;
+        text-decoration: none;
+    }
+
+    body {
+        font: 12px/180% Arial, Helvetica, sans-serif, "";
+    }
+    /* advbox */
+
+    *html,
+    *html body {
+        background-image: url(about:blank);
+        background-attachment: fixed;
+    }
+
+    *html .advbox {
+        position: absolute;
+        top: expression(eval(document.documentElement.scrollTop));
+    }
+
+    .advbox {
+        width: 670px;
+        position: fixed;
+        display: none;
+        left: 50%;
+        top: 0;
+        margin: -215px 0 0 -325px;
+    }
+
+    .advbox .advpic {
+        position: relative;
+        height: 420px;
+        overflow: hidden;
+    }
+
+    .advbox .advpic .closebtn {
+        display: block;
+        width: 40px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        color: #fff;
+        text-indent: 12px;
+        overflow: hidden;
+        position: absolute;
+        right: 5px;
+        top: 0px;
+        z-index: 99;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="advbox">
+        <div class="advpic">
+            <img width="670" height="420" alt="" src="images/xin.jpg" />
+            <a href="javascript:void(0);" class="closebtn">关闭</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var COOKIE_NAME = "showbox";
+        if ($.cookie(COOKIE_NAME)) {
+            $(".advbox").hide();
+        } else {
+            $(".advbox").show();
+            $(".advbox").animate({
+                top: "50%"
+            }, 1000);
+            $(".closebtn").click(function() {
+                $(".advbox").fadeOut(500);
+            })
+            $.cookie(COOKIE_NAME, 'ishide', {
+                expires: 1
+            });
+        }
+    })
+    </script>
+</body>
+
+</html>

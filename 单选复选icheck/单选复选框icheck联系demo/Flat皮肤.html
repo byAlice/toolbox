@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="edge"/>
+    <title>单选复选框</title>
+
+    <!--<link href="skins/minimal/green.css" rel="stylesheet">-->
+    <link href="skins/flat/green.css" rel="stylesheet">
+    <script src="demo/js/jquery.js"></script>
+    <script src="icheck.min.js"></script>
+    <style>
+        .myul li{
+            list-style: none;
+
+        }
+        .icheckbox_flat-green,
+        .iradio_flat-green{
+            /*   display: block;
+               border-radius: 50%;*/
+            margin-right: 20px;
+
+        }
+        /*      .icheckbox_minimal-green input{
+                  display: block;
+                  border-radius: 50%;
+              }
+              .icheckbox_minimal-green .iCheck-helper{
+                  display: block;
+                  border-radius: 50%;
+              }*/
+    </style>
+</head>
+<body>
+<ul class="myul">
+    <li>
+        <label><input type="checkbox">选项一</label></li>
+    <li><label><input type="checkbox" checked>选项二</label></li>
+    <li><label><input type="radio" name="iCheck">选项三</label></li>
+    <li><label><input type="radio" name="iCheck" checked>选项四</label></li>
+</ul>
+
+
+
+
+<!--<script>-->
+<!--$(document).ready(function(){-->
+<!--$('input').iCheck({-->
+<!--checkboxClass: 'icheckbox_minimal-green',-->
+<!--radioClass: 'iradio_minimal-green',-->
+<!--increaseArea: '20%' // optional-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+<script>
+    $(document).ready(function(){
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
+</body>
+</html>

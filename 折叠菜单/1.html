@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel=stylesheet href="css/1.css">
+    <style type="text/css">
+    .none {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="subNavBox">
+        <div class="subNav"><strong>会员专享价</strong></a>
+        </div>
+        <ul class="navContent">
+            <li class="user_price">
+                <p><span class="key">铜牌会员：9.8折</span></p>
+                <p><span class="key">金牌会员：9.5折</span></p>
+                <p><span class="key">钻石会员：9折</span></p>
+            </li>
+        </ul>
+    </div>
+    <div class="subNavBox">
+        <div class="subNav"><strong>会员专享价</strong></a>
+        </div>
+        <ul class="navContent">
+            <li class="user_price">
+                <p><span class="key">铜牌会员：9.8折</span></p>
+                <p><span class="key">金牌会员：9.5折</span></p>
+                <p><span class="key">钻石会员：9折</span></p>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+      $(function(){
+        $(".subNav").click(function(){
+          $(this).next(".navContent").slideToggle(300).siblings(".navContent").slideUp(500);
+          $(this).toggleClass("on").siblings(".subNav").removeClass("on");
+          if($(".is_scroll").length <= 0)
+          {
+            $('html,body').animate({'scrollTop':$('body')[0].scrollHeight},600);
+          }
+        });
+       /* commentType = 1; // 评论类型
+        ajaxComment(1,1);// ajax 加载评价列表*/
+      })
+      </script>
+</body>
+
+</html>

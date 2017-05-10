@@ -1,0 +1,36 @@
+/*属性弹出下拉菜单css*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.navContent{display: none;}
+.ui-sx{ width:100%; overflow:hidden;}
+.subNavBox{ overflow:hidden; margin-left:10px; padding-bottom:0px; margin-right:10px; }
+.subNav{background: url(../images/arrow_down_off.png) no-repeat right center;background-size: auto 13px;}
+.subNav.on{background: url(../images/arrow_down_on.png) no-repeat right center;background-size: auto 14px;}
+.subNav strong{ display:block;width:100%; height:40px;border-bottom:1px solid #eeeeee; color:#493123; font-weight:normal; font-size:16px; line-height:40px;}
+.currentDt{background-image:url(../images/jiantou2.png) no-repeat 97% center;background-size: auto 13px; }
+
+.navContent li{overflow:hidden; width:100%;}
+.navContent li .title{ float:left;font-size:16px;padding-right:10px; line-height:30px; color:#666; margin-top:6px;}
+.navContent li .item{ overflow:hidden;}
+.navContent li .item a{ padding-left:10px;color: #493123; padding-right:10px; border:1px solid #ebebeb;background: #ebebeb;font-size: 14px; line-height:30px; display:inline-block; -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; margin-right:5px; margin-bottom:10px;}
+.navContent li .item a.hover{ background:#eccf0e; color:#FFF; border:1px solid #eccf0e; -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+
+.navContent li .purchase{ font-size:14px; line-height:25px; color:#666;}
+.navContent li .purchase_v{font-size:16px; line-height:25px; color:#dd2724; font-weight:bold}
+.navContent li h2{ font-size:18px; line-height:30px; color:#333; font-weight:normal}
+.navContent li p{ width:100%; overflow:hidden; height:25px; line-height:25px; margin:auto}
+.navContent li .key{ display:block; font-size:14px; color:#85756b;}
+
+
+
+.navContent li .title1{ width:100%;font-size:16px; height:20px; line-height:20px; color:#666; padding-top:10px}
+.navContent li .item1{ width:100%;height:50px; overflow:hidden; padding-bottom:5px;}
+.navContent li .item1 a{ padding-left:10px; padding-right:10px; border:1px solid #CCC; line-height:30px; display:inline-block;  -moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px; margin-right:5px; margin-bottom:10px;}
+.navContent li .item1 a.hover{ background:#dd2726; color:#FFF; border:0;    -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+.navContent li .item1 .ui-number{overflow:hidden; height:25px; display:block;width:1121px; margin-top:10px;font-size: 16px;line-height: 25px;}
+
+.navContent li .item1 .ui-number .decrease{ display:inline-block; background:none; font-size:20px; line-height:20px; border:0;width:25px; float:left; height:25px; color:#fff; border-radius: 5px;background: url("../images/djp/icon-sub.png") no-repeat center center;background-size:100% 100%;}
+.navContent li .item1 .ui-number .num{margin: 0 7px; display:inline-block;border:1px solid #ccc;border-radius: 5px;box-sizing: border-box; width:56px; height:25px;float:left; text-align:center;line-height:23px; color:#666;font-size:18px;text-align:center}
+.navContent li .item1 .ui-number .increase{margin-right: 40px; display:inline-block;background:none;border:0;float:left; width:25px; height:25px;font-size:20px; line-height:25px;color:#fff; border-radius: 5px;background: url("../images/djp/icon-add.png") no-repeat center center;background-size:100% 100%;}

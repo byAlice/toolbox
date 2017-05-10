@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			/* 清除浮动 */
+			
+			.clearfix:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.clearfix {
+				_height: 1%;
+			}
+			
+			.clear {
+				clear: both;
+			}
+			/** 导航条样式 */
+			
+			.g-nav {
+				width: 100%;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			.g-nav li {
+				line-height: 2;
+				float: left;
+				text-align: center;
+			}
+			
+			.g-nav li {
+				width: 100%;
+			}
+			
+			.g-nav li:first-child:nth-last-child(2),
+			.g-nav li:first-child:nth-last-child(2)~li {
+				width: 50%;
+			}
+			
+			.g-nav li:first-child:nth-last-child(3),
+			.g-nav li:first-child:nth-last-child(3)~li {
+				width: 33.333%;
+			}
+			
+			.g-nav li:first-child:nth-last-child(4),
+			.g-nav li:first-child:nth-last-child(4)~li {
+				width: 25%;
+			}
+			
+			.g-nav li:first-child:nth-last-child(5),
+			.g-nav li:first-child:nth-last-child(5)~li {
+				width: 20%;
+			}
+			
+			.g-nav .nav-cur {
+				color: red;
+				border-bottom: 1px solid;
+			}
+			
+			.nav-cur-item {
+				display: block!important;
+			}
+			
+			.tab-item {
+				line-height: 1;
+				border-top: 5px solid #ebebeb;
+				display: none;
+			}
+			
+			* {
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<ul class="g-nav clearfix">
+			<li>
+				<div id="tab1" class="nav-item nav-cur">tab1</div>
+			</li>
+			<li>
+				<div id="tab2" class="nav-item">tab2</div>
+			</li>
+			<li>
+				<div id="tab3" class="nav-item">tab3</div>
+			</li>
+		</ul>
+
+		<div class="g-tab">
+			<div id="tab1-item" class="tab-item nav-cur-item ">
+				1111111
+			</div>
+			<div id="tab2-item" class="tab-item">
+				2222222
+			</div>
+			<div id="tab3-item" class="tab-item">
+				333333
+			</div>
+		</div>
+		<script type="text/javascript">
+			$('.g-nav').delegate('.nav-item', 'click', function(event) {
+				var _id = this.id;
+				$(this).addClass('nav-cur').parent().siblings().find('.nav-item').removeClass('nav-cur');
+				$('#' + _id + '-item').addClass('nav-cur-item').siblings('.tab-item').removeClass('nav-cur-item');
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-lang="zh-cmn-Hans" data-template="default" ng-app="purifierLogin">
+
+<head>
+    <meta charset="UTF-8">
+    <title>排污模式</title>
+    <!-- 适应移动端end -->
+    <!-- ie浏览器使用最新模式渲染 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- 禁止页面缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 让ie浏览器支持h5标签 -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 页面描述 -->
+    <meta name="description" content="倍绿亚">
+    <!-- 关键字 -->
+    <!-- <meta name="keywords" content="倍绿亚"> -->
+    <!-- css库 -->
+    <!--<link rel="stylesheet" href="../css/common.min.css">-->
+
+    <style>
+        .comment_container{
+            overflow: auto;
+        }
+        .comment_container{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        form{
+            display: block;
+            margin-top: 0;
+        }
+        .white{
+            background: #fff;
+        }
+        .deviceType_list{
+            margin: 0 -15px;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        dd,dl.dt,li,ol,ul{
+            margin: 0;
+            padding: 0;
+        }
+        input[type=radio]{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+        }
+        .none{
+            display: none;
+        }
+        a,input,textarea{
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        .deviceBindSelect_device .select-confirm {
+            margin: 20px 10px 20px 0;
+            width: 20px;
+            height: 20px;
+        }
+        .block{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<!--<header class="common_header page-header m-1-b clearfix">
+    <a class="common_header-left fl" href="deviceAdmin.html"><img src="../img/public/return_white.png" alt="return"></a>
+    &lt;!&ndash; <a class="common_header-right fr" ng-href=""></a> &ndash;&gt;
+    <div class="common_header-center f-3-c">排污模式</div>
+    &lt;!&ndash; <nav id="navigation"></nav> &ndash;&gt;
+</header>-->
+<form class="common_container page-container deviceType_container" id="deviceType_form">
+    <h5 class="deviceType_title medium f-2-c">设置排污周期<img class="modal_open fr" src="../img/public/action-50_ask.png" alt=""></h5>
+    <ul class="deviceType_list white">
+        <li>
+            <input id="dayFor_15" class="none" name="days" type="radio" checked>
+            <img class="select-confirm fr none" src="../img/public/confirm_green.png" alt="">
+            <label class="block f-1-c medium h3" for="dayFor_15">15天</label>
+        </li>
+        <li>
+            <input id="dayFor_10" class="none" name="days" type="radio">
+            <img class="select-confirm fr none" src="../img/public/confirm_green.png" alt="">
+            <label class="block f-1-c medium h3" for="dayFor_10">10天</label>
+        </li>
+        <li>
+            <input id="dayFor_5" class="none" name="days" type="radio">
+            <img class="select-confirm fr none" src="../img/public/confirm_green.png" alt="">
+            <label class="block f-1-c medium h3" for="dayFor_5">5天</label>
+        </li>
+    </ul>
+
+
+    <input id="deviceType-submit" class="none" type="submit">
+    <label id="deviceType_button" class="instructions_button text-center block big medium" for="deviceType-submit">保存</label>
+</form>
+<!--<div class="modal_warpper deviceType_modal">
+    <div class="modal_mask"></div>
+    <div class="modal_content modal_middle">
+        <div class="modal_body">
+            <p>15天，饮水会保持正常</p>
+            <p>10天，饮水会保持优质</p>
+            <p>5天，饮水会保持完美</p>
+        </div>
+        <div class="modal_foot modal_close m-2-c text-center h2 medium">
+            取消
+        </div>
+    </div>
+</div>-->
+</body>
+<script src="../../jquery/dist/jquery.js" charset="utf-8"></script>
+<!--<script type="text/javascript" src="../../components/jquery-validation/dist/jquery.validate.min.js"></script>-->
+<!--<script src="../js/common.min.js"></script>-->
+<script type="text/javascript">
+    $(function() {
+        /*positionContainer();*/
+        radioToImg();
+        /*modalShow();*/
+    });
+    $(':radio').click(function() {
+        radioToImg();
+    });
+    $(".modal_open").click(function() {
+        modalShow();
+    });
+    $(".modal_mask").click(function(e) {
+        event.stopPropagation();
+        modalHide();
+    });
+    $(".modal_close").click(function(e) {
+        event.stopPropagation();
+        modalHide();
+    });
+
+    var radioToImg = function () {
+        $(':checked').next('img').show();
+        $(':not(:checked)').next('img').hide();
+    };
+</script>
+
+</html>

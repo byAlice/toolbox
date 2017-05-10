@@ -1,0 +1,482 @@
+/*
+* @Author: byAlice
+* @Date:   2017-02-17 15:30:58
+*/
+
+/* 全站字体 */
+
+html {
+	/*1.综合最优*/
+	font-family: Helvetica, arial, 'Hiragino Sans GB', \5b8b\4f53, sans-serif;
+	/*2.性能最好*/
+	font-family: Helvetica, arial, 'Hiragino Sans GB', \5b8b\4f53, sans-serif;
+	/*font-family:Microsoft YaHei;*/
+	/*省事*/
+	font-family: Helvetica, arial, 'Hiragino Sans GB', \5b8b\4f53, sans-serif;
+	/*font-family:Microsoft YaHei,Helvetica,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;*/
+}
+/* 移动端定义字体的代码 */
+body{font-family:Helvetica;}
+
+/* 字体图标模糊问题处理方法 */
+
+.iconfont {
+	/* 在浏览器渲染的时候直接显示一个像素了，导致在有背景下的图标显示感觉加粗；所以在应用字体图标的时候需要对图标样式进行抗锯齿处理 */
+	-webkit-font-smoothing: antialiased;
+	/* 字体图标在pc端的chrome浏览器下出现严重的锯齿； */
+	-webkit-text-stroke-width: 0.2px;
+	/* 字体图标在IE7浏览器显示中图标右侧出现小方框现象； */
+	display: block;
+}
+
+
+/* 去除a标签点击高亮 */
+
+
+/*清除手机tap事件后element 时候出现的一个高亮*/
+
+* a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+/* 清除 iOS 下 input 表单的阴影 */
+
+input {
+	-webkit-appearance: none;
+	/*移除当选中input元素的时候出现的状态线*/
+	outline: none;
+}
+/*webkit表单输入框placeholder的颜色值*/
+input::-webkit-input-placeholder{color:#AAAAAA;}
+input:focus::-webkit-input-placeholder{color:#EEEEEE;}
+/*position: absolute， 让margin有效的*/
+
+a_center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+
+/*开启硬件加速*/
+
+.cube {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	/* Other transform properties here */
+}
+
+
+/*使用CSS transforms 或者 animations时解决页面闪烁问题*/
+
+.cube {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+	/* Other transform properties here */
+}
+
+
+/*移除浏览器默认的样式*/
+
+input,
+button,
+textarea,
+select {
+	*font-size: 100%;
+	-webkit-appearance: none;
+	border: 1px solid #008855;
+	outline: none;
+}
+
+input:focus {
+	border: 1px solid red;
+}
+
+
+/*user-select 禁止用户选中文本*/
+
+.not_choose {
+	-moz-user-select: none;
+	user-select: none;
+}
+
+
+/*-webkit-touch-callout 禁止长按链接与图片弹出菜单*/
+
+a {
+	-webkit-touch-callout: none;
+}
+
+
+/*对选中的文本默认样式 Webkit,Opera9.5+,Ie9+*/
+
+::selection {
+	background: #000;
+	color: #fff;
+}
+
+
+/*Mozilla Firefox*/
+
+::-moz-selection {
+	background: #000;
+	color: #fff;
+}
+
+
+/* 文字超出两行显示... */
+
+.p1 {
+	text-align: center;
+	color: #C8CFD6;
+	height: 34px;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.bgsz {
+	/*左右，上下*/
+	/*不确定高度情况下高度用auto*/
+	background-size: 100% auto;
+}
+
+
+/* IE6/7/8支持css3圆角 */
+
+.test {
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	/* IE6/7/8支持css3圆角,需引入ie-css3.htc文件 */
+	behavior: url('ie-css3.htc');
+}
+
+
+/* 背景图片高度占满，宽度自适应，不失真方案 */
+
+.h_bg1 {
+	background: url("./images/djp/jxhc.png") no-repeat center;
+	background-size: 100% auto;
+	height: 35px;
+}
+
+
+/* 字体粗细 */
+
+.ultralight {
+	font-weight: 100;
+}
+
+.thin {
+	font-weight: 200;
+}
+
+
+/* 黑体-简 细 */
+
+.light {
+	font-weight: 300;
+}
+
+
+/* 微软雅黑 中 */
+
+.regular {
+	font-weight: 400;
+}
+
+
+/* 黑体-简 中 */
+
+.medium {
+	font-weight: 500;
+}
+
+.semibold {
+	font-weight: 600;
+}
+
+
+/* 微软雅黑 粗 */
+
+.bold {
+	font-weight: 700;
+}
+
+.heavy {
+	font-weight: 900;
+}
+
+
+/*强制不换行*/
+
+.no_break {
+	white-space: nowrap;
+}
+
+
+/*强制换行*/
+
+.en_break {
+	word-break: break-all;
+}
+
+
+/* 自动断行 */
+
+.break {
+	word-break: normal;
+	word-wrap: break-word;
+}
+
+
+/* 字体超出隐藏 */
+
+.over {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/*超出两行显示省略号*/
+
+.line2 {
+	line-height: 20px;
+	display: block;
+	height: 40px;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+
+/*calc计算宽高*/
+
+.w_calc {
+	width: calc(100% - 100px);
+}
+
+
+/*字体抗锯齿,只对macos有效，无实际用途*/
+
+.font_clear {
+	-webkit-font-smoothing: antialiased;
+}
+
+
+/*渐变*/
+
+.toTop {
+	background: -webkit-linear-gradient(direction, color-stop1, color-stop2);
+	background: linear-gradient(direction, color-stop1, color-stop2);
+}
+
+
+/* 文字位置 */
+
+.tc {
+	text-align: center;
+}
+
+.tr {
+	text-align: right;
+}
+
+.tl {
+	text-align: left;
+}
+
+
+/* 清除边距 */
+
+.m0 {
+	margin: 0;
+}
+
+.p0 {
+	padding: 0;
+}
+
+
+/* 浮动 */
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+
+/* 清除浮动 */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	_height: 1%;
+}
+
+.clear {
+	clear: both;
+}
+
+
+/* 块元素和行内元素转换 */
+
+.block {
+	display: block;
+}
+
+.inline {
+	display: inline;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.table {
+	display: table;
+}
+
+.table-cell {
+	display: table-cell;
+}
+
+.none {
+	display: none;
+}
+
+
+/* 宽度100% */
+
+.fluid {
+	width: 100%;
+}
+
+
+/*去除a链接下划线*/
+
+a {
+	text-decoration: none;
+}
+
+
+/*阻止旋转屏幕时改变字体大小*/
+
+html,
+body,
+form,
+fieldset,
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	-webkit-text-size-adjust: none;
+}
+
+
+/*头部固定方案*/
+
+
+/*.fixed_header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.fixed_header+.pt_header{
+    width: 100%;
+    height: 0;
+    padding-top: 45px;
+}*/
+
+
+/*头部固定方案end*/
+
+
+/*单选多选框美化-start*/
+
+
+/* 兼容到IE8以上，ie8不支持 */
+
+input[type="checkbox"]+label.img_choose::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	background: url(images/radio_empty.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+input[type="checkbox"]:checked+label.img_choose::after {
+	content: "";
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	background: url(images/radio_choose.png) no-repeat;
+	background-size: 100% 100%;
+	z-index: 2;
+}
+
+
+/* html结构 s */
+
+
+/*<li><input id="id1" class="none" type="checkbox" name="kc" value="0" /><label class="img_choose" for='id1'>java</label></li>*/
+
+
+/*单选多选框美化 -end*/
+
+
+/*画三角*/
+
+.triangle {
+	border-bottom: 10px solid white;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	height: 0px;
+	width: 0px;
+}
+
+
+/*设置文字字母间距*/
+
+.letter_space {
+	letter-spacing: 5px; //也可以是负数
+}

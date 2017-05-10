@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>图片上传</title>
+    <style>
+    input.img_upload {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .file {
+        position: relative;
+        display: inline-block;
+        vertical-align: bottom;
+        width: 60px;
+        height: 60px;
+        background: url(images/xiangji.png) no-repeat center center;
+        border-radius: 5px;
+        border: 1px solid #ebebeb;
+        padding: 0px 0px;
+        overflow: hidden;
+        text-decoration: none;
+        text-indent: 0;
+        background-size: auto 32px;
+    }
+
+    .file input {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .file:hover {
+        text-decoration: none;
+    }
+
+    a input {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="p_main">
+        <a href="javascript:;" class="file">
+            <div id="fileList3"><img></div>
+            <!-- <label for="img_upload"></label> -->
+            <input id="img_upload" class="img_upload" type="file" onchange="handleFiles(this,3)" name="comment_img_file[]" accept="image/*">
+        </a>
+    </div>
+    <script>
+    /*图片上传*/
+    function handleFiles(obj, id) {
+        fileList = document.getElementById("fileList" + id);
+        var files = obj.files;
+        img = new Image();
+        if (window.URL) {
+
+            img.src = window.URL.createObjectURL(files[0]); //创建一个object URL，并不是你的本地路径
+            img.width = 60;
+            img.height = 60;
+            img.onload = function(e) {
+                window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+            }
+            if (fileList.firstElementChild) {
+                fileList.removeChild(fileList.firstElementChild);
+            }
+            fileList.appendChild(img);
+        } else if (window.FileReader) {
+            //opera不支持createObjectURL/revokeObjectURL方法。我们用FileReader对象来处理
+            var reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = function(e) {
+                img.src = this.result;
+                img.width = 60;
+                img.height = 60;
+                fileList.appendChild(img);
+            }
+        } else {
+            //ie
+            obj.select();
+            obj.blur();
+            var nfile = document.selection.createRange().text;
+            document.selection.empty();
+            img.src = nfile;
+            img.width = 60;
+            img.height = 60;
+            img.onload = function() {
+
+            }
+            fileList.appendChild(img);
+        }
+    }
+    </script>
+</body>
+
+</html>

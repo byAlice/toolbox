@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="威客,自由职业者,兼职,技术,服务,众包,外包,需求,软件,直销,首选">
+    <meta name="description" content="一个连接专才，聚焦技术与技能，使之成为可交易商品，并围绕交易以领先的技术为中小企业和个人，自由职业者，威客等提供价格合理，质量有保证，实现最高效率与价值并存的技术服务众包。" />
+    <title>分享插件</title>
+    <link rel="stylesheet" href="css/share.css">
+</head>
+
+<body>
+    <div class="sns-share">
+        <a href="" class="qzone"><img src="images/kongjian.png" alt="qq空间"></a>
+        <a href="" class="qq"><img src="images/qq.png" alt="qq"></a>
+        <a href="" class="weibo"><img src="images/weibo.png" alt="新浪微博"></a>
+        <a href="javascript:void(0);" class="wexin"><img src="images/weixin.png" alt="微信"></a>
+        <a href="" class="txweibo"><img src="images/tweibo.png" alt="腾讯微博"></a>
+    </div>
+    <!-- 引入sns.js -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/share_wechat.js"></script>
+    <script>
+    $(function() {
+        /*var $config = {
+            url    : 'http://www.qianduandu.com', // 网址，默认使用 window.location.href
+            site   : '', // 来源（QQ空间会用到）, 默认读取head标签：<meta name="site" content="http://overtrue" />
+            title  : '这个是tittle', // 标题，默认读取 document.title
+            description : '这个事描述', // 描述, 默认读取head标签：<meta name="description" content="PHP弱类型的实现原理分析" />
+            iamge    : 'http://bbs.xiaoniu.com/data/attachment/image/paipai/7a51976182_flow.jpg', // 图片, 默认取网页中第一个img标签
+            target : '_blank' //打开方式
+           };
+
+        $('.sns-share').share($config);*/
+        $('.sns-share').share();
+        $(".wexin").on("click", function(e) {
+            // 阻止默认事件
+            // e.preventDefault();
+            $(this).socialShare("weixinShare");
+        });
+
+        // $(".txweibo").on("click",function(){
+        //     $(this).socialShare("txweibo");
+        // })
+    });
+    </script>
+</body>
+
+</html>

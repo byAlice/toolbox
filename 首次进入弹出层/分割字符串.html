@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<style type="text/css">
+    .-webkit-tap-highlight-color:transparent;
+</style>
+<body>
+
+
+<a href="#">1111</a>
+    <script type="text/javascript">
+    str = "http://tpshop.cc/index.php/Mobile/User/index.html"; //这是一字符串
+    var myArray = new Array();      //定义一数组
+    strs = str.split("/").reverse()         //以‘/’分割，之后倒序排列
+    // strs = str.split("/").reverse().join('')         //以‘/’分割，之后倒序排列,再将每部分字符拆开排列
+    for (i = 0; i < strs.length-1; i++) {
+        //填入数组中
+        myArray.push(strs[i])
+    }
+     document.write( myArray);      //分割后的字符输出
+     if (myArray[1]=='User'|| myArray[2]=='User') {
+        alert('66666');
+     };
+    </script>
+</body>
+
+</html>

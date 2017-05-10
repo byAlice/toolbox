@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>多张图片上传</title>
+    <style>
+    input.img_upload {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .file {
+        position: relative;
+        display: inline-block;
+        vertical-align: bottom;
+        width: 60px;
+        height: 60px;
+        background: url(images/xiangji.png) no-repeat center center;
+        border-radius: 5px;
+        border: 1px solid #ebebeb;
+        padding: 0px 0px;
+        overflow: hidden;
+        text-decoration: none;
+        text-indent: 0;
+        background-size: auto 32px;
+    }
+
+    .file input {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .file:hover {
+        text-decoration: none;
+    }
+
+    a input {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+    }
+    .none{
+        display: none;
+    }
+    .inline-block{
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body>
+<!-- 最多上传5张图片，最初只显示一个上传图标，上传完成后添加一个上传图标 -->
+    <div class="p_main">
+       <a class="file" href="javascript:;">
+        <div style="width:60px;height:60px;" id="fileList0"></div>
+        <input type="file" accept="image/*" name="return_imgs[]" onchange="handleFiles(this,0)">
+      </a>
+      <a style="display: none;" class="file" href="javascript:;">
+        <div style="width:60px;height:60px;" id="fileList1"></div>
+        <input type="file" accept="image/*" name="return_imgs[]" onchange="handleFiles(this,1)">
+      </a>
+      <a style="display: none;" class="file" href="javascript:;">
+        <div style="width:60px;height:60px;" id="fileList2"></div>
+        <input type="file" accept="image/*" name="return_imgs[]" onchange="handleFiles(this,2)">
+      </a>
+      <a style="display: none;" class="file" href="javascript:;">
+        <div style="width:60px;height:60px;" id="fileList3"></div>
+        <input type="file" accept="image/*" name="return_imgs[]" onchange="handleFiles(this,3)">
+      </a>
+      <a style="display: none;" class="file" href="javascript:;">
+        <div style="width:60px;height:60px;" id="fileList4"></div>
+        <input type="file" accept="image/*" name="return_imgs[]" onchange="handleFiles(this,4)">
+      </a>
+    </div>
+    <script src="../jquery/dist/jquery.js"></script>
+    <script>
+    /*图片上传*/
+
+    var img_num = 0;
+    var AllImgExt = ".jpg|.jpeg|.gif|.bmp|.png|"; //全部图片格式类型
+    $(".file input").each(function(index) {
+        FileExt = this.value.substr(this.value.lastIndexOf(".")).toLowerCase();
+        if (this.value != '') {
+            img_num++;
+            if (AllImgExt.indexOf(FileExt + "|") == -1) {
+                error.push("第" + (index + 1) + "张图片格式错误");
+            }
+        }
+    });
+
+    window.URL = window.URL || window.webkitUR
+    function handleFiles(obj, id) {
+        fileList = document.getElementById("fileList" + id);
+        var files = obj.files;
+        img = new Image();
+        if (window.URL) {
+
+            img.src = window.URL.createObjectURL(files[0]); //创建一个object URL，并不是你的本地路径
+            img.width = 60;
+            img.height = 60;
+            img.onload = function(e) {
+                window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+            }
+            if (fileList.firstElementChild) {
+                fileList.removeChild(fileList.firstElementChild);
+            }
+            if(id<4){
+                $(fileList).parent().next().show();
+                $("#action").hide();
+            }
+            fileList.appendChild(img);
+        } else if (window.FileReader) {
+            //opera不支持createObjectURL/revokeObjectURL方法。我们用FileReader对象来处理
+            var reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = function(e) {
+                img.src = this.result;
+                img.width = 60;
+                img.height = 60;
+                if(id<4){
+                    $(fileList).parent().next().show();
+                    $('#action').hide();
+                }
+                fileList.appendChild(img);
+            }
+        } else {
+            //ie
+            obj.select();
+            obj.blur();
+            var nfile = document.selection.createRange().text;
+            document.selection.empty();
+            img.src = nfile;
+            img.width = 60;
+            img.height = 60;
+            if(id<4){
+                $(fileList).parent().next().show();
+                $("#action").hide();
+            }
+            img.onload = function() {
+
+            }
+            fileList.appendChild(img);
+        }
+    }
+    </script>
+</body>
+
+</html>
